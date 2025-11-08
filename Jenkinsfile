@@ -1,19 +1,24 @@
 pipeline {
     agent any
+
+    parameters {
+        string(name: 'BRANCH_VERSION')
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo "Building branch version: ${params.BRANCH_VERSION}..."
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo "Testing branch version: ${params.BRANCH_VERSION}..."
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo "Deploying branch version: ${params.BRANCH_VERSION}..."
             }
         }
     }
