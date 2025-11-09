@@ -7,6 +7,11 @@ pipeline {
             choices: ['1.1', '1.2', '1.3', '2.0', '2.1'],
             description: 'Select the branch version to build.'
         )
+        booleanParam(
+            name: 'RUN_TESTS',
+            defaultValue: true,
+            description: 'Whether to run tests after build.'
+        )
     }
 
     stages {
